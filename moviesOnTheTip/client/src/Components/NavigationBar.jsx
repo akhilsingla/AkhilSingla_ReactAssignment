@@ -20,10 +20,10 @@ const NavigationBar = (props) => {
                             style={{maxHeight: '100px'}}
                             navbarScroll
                         >
-                            <Link to="/" onClick={() => loadNewCategory("movies-in-theaters")}>Movies in theaters</Link>
-                            <Link to="/" onClick={() => loadNewCategory("movies-coming")}>Coming Soon</Link>
-                            <Link to="/" onClick={() => loadNewCategory("top-rated-india")}>Top rated indian</Link>
-                            <Link to="/" onClick={() => loadNewCategory("top-rated-movies")}>Top rated movies</Link>
+                            <Link to="/" onClick={() => loadNewCategory("movies-in-theaters")}>Movies in theaters</Link> |
+                            <Link to="/" onClick={() => loadNewCategory("movies-coming")}>Coming Soon</Link> |
+                            <Link to="/" onClick={() => loadNewCategory("top-rated-india")}>Top rated indian</Link> |
+                            <Link to="/" onClick={() => loadNewCategory("top-rated-movies")}>Top rated movies</Link> |
                             <Nav.Link href="#Favourites" onClick={loadNewCategory}>Favourites</Nav.Link>
                         </Nav>
                         <Form className="d-flex">
