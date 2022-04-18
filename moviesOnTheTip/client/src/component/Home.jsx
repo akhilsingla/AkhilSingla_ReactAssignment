@@ -3,17 +3,23 @@ import NavigationBar from "./NavigationBar";
 import fetchMovies from "../service/fetchMovies";
 import Card from "./Card";
 
-const Home = () =>
+const Home =  () =>
 {
-    const [movies, setMovies]= useState([]);
+
+    let data = null;
+    /*const [movies, setMovies]= useState([]);
 
     useEffect(() => {
         const data =  fetchMovies("movies-coming");
         //const respones = await data;
-        setMovies(data);}, []);
+        setMovies(data);}, []);*/
 
+    useEffect(  () => {
+        data = movies().then(response => console.log(response));
+    }, [])
 
-    console.log(movies);
+    const movies = async () =>  await fetchMovies("movies-coming");
+
     return(
         <>
 
@@ -22,8 +28,8 @@ const Home = () =>
             <h2>
                 Movies
             </h2>
-            {movies && movies.map(data => {
-                <Card src={data.posterurl} title={data.title}/>
+            {data && data.map(data1 => {
+                <Card src={data1.posterurl} title={data1.title}/>
             })}
 
         </>
