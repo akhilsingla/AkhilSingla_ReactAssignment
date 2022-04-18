@@ -29,7 +29,7 @@ const Home = () => {
 
     return (
         <>
-            <NavigationBar></NavigationBar>
+            <NavigationBar categoryClicked={category => setSelectedCategory(category)}></NavigationBar>
 
             <div style={{
                 margin: "0 60px"

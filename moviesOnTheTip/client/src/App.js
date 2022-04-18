@@ -8,9 +8,8 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home/>}/>
+                <Route path="/" element={<Home/>} exact/>
                 <Route path="/:movieCategory/:movieName" element={<MovieDetail/>}/>
-                <Route path="*" element={<div>No Data Found</div>}/>
             </Routes>
         </BrowserRouter>
     );
