@@ -29,7 +29,7 @@ const Home = () => {
 
     return (
         <>
-            <NavigationBar categoryClicked={category => setSelectedCategory(category)}></NavigationBar>
+            <NavigationBar categoryClicked={category => setSelectedCategory(category)} searchStr = {(str) => setSearchString(str)}></NavigationBar>
 
             <div style={{
                 margin: "0 60px"
@@ -37,6 +37,8 @@ const Home = () => {
                 <h2>
                     Movies
                 </h2>
+                {searchString ? <span><b>Search results for string : </b> {searchString}</span> : null}
+                {movies.length !== 0 ?
                 <div style={{
                     display: "flex",
                     flexDirection: "row",
@@ -48,7 +50,8 @@ const Home = () => {
                         return <Card imageUrl={data.posterurl} movieName={data.title} key={data.id}
                                      movieCategory={selectedCategory}/>
                     })}
-                </div>
+                </div> : <div>No Movies Found......</div>
+                }
             </div>
 
 

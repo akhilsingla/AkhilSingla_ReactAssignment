@@ -10,6 +10,13 @@ const NavigationBar = (props) => {
 
     }
 
+    const searchMovies = (event) =>
+    {
+        console.log(event.target.value);
+        props.searchStr(event.target.value);
+
+    }
+
     return (
         <>
             <Navbar bg="light" expand="lg">
@@ -27,14 +34,16 @@ const NavigationBar = (props) => {
                             <Nav.Link href="#Favourites" onClick={loadNewCategory}>Favourites</Nav.Link>
                         </Nav>
                         <Form className="d-flex">
-                            <FormControl
+                            {/*<FormControl
                                 type="search"
                                 placeholder="Search"
                                 className="me-2"
                                 aria-label="Search"
-                            />
-                            <Button variant="outline-success">Search</Button>
+                                onChange={() => searchMovies("a")}
+                            />*/}
+
                         </Form>
+                        <input type="search" onChange={(event) => searchMovies(event)}></input>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
