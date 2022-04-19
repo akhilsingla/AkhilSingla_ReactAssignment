@@ -34,12 +34,13 @@ const Home = () => {
     return (
         <>
             <NavigationBar selectCategory={setSelectedCategory} searchStr={setSearchString}/>
+            <br/>
             <div style={{
                 margin: "0 60px"
             }}>
-                <h2>
-                    Movies
-                </h2>
+                <h3>
+                    Movies ({selectedCategory.replaceAll("-", " ")})
+                </h3>
                 {searchString ? <span><b>Search results for string : </b> {searchString}</span> : null}
                 {movies.length !== 0 ?
                     <div style={{
