@@ -2,16 +2,11 @@ import React, {useEffect, useState} from "react";
 import NavigationBar from "../Components/NavigationBar";
 import Card from "../Components/Card";
 
-const categoryMap = {
-    'movies-in-theaters': 'Movies in theatres',
-    'movies-coming': 'Coming Soon',
-    'top-rated-india': 'Top rated Indian',
-    'top-rated-movies': 'Top rated movies',
-    'favourit': 'Favourites'
-}
+
 
 const Home = () => {
     const [selectedCategory, setSelectedCategory] = useState('movies-in-theaters');
+    const isFavouriteTab = selectedCategory === 'favourit';
     const [searchString, setSearchString] = useState('');
     const [movies, setMovies] = useState([]);
 
@@ -20,6 +15,7 @@ const Home = () => {
         if (searchString) {
             fetchUrl = `http://localhost:4000/${selectedCategory}?title_like=${searchString}`
         }
+        console.log('fetchUfrl', fetchUrl);
         fetch(fetchUrl)
             .then(response => response.json())
             .then(data => {
@@ -27,10 +23,11 @@ const Home = () => {
             });
     }, [selectedCategory, searchString]);
 
+    console.log(selectedCategory, searchString, movies);
+
     return (
         <>
-            <NavigationBar categoryClicked={category => setSelectedCategory(category)} searchStr = {(str) => setSearchString(str)}></NavigationBar>
-
+            <NavigationBar selectCategory={setSelectedCategory} searchStr={setSearchString} />
             <div style={{
                 margin: "0 60px"
             }}>
@@ -47,8 +44,7 @@ const Home = () => {
 
                 }}>
                     {movies.map(data => {
-                        return <Card imageUrl={data.posterurl} movieName={data.title} key={data.id}
-                                     movieCategory={selectedCategory}/>
+                        return <Card key={data.id} movieData={data} movieCategory={selectedCategory} isFavouriteTab={isFavouriteTab} setMovies={setMovies} />
                     })}
                 </div> : <div>No Movies Found......</div>
                 }
