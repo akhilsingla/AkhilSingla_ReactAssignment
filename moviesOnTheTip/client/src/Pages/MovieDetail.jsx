@@ -26,7 +26,7 @@ const MovieDetail = () => {
             }}>
                 <img src={movieDetail.posterurl} alt={`${movieDetail.title} poster`} width="300px" height="450px"/>
                 <div style={{marginLeft: "20px"}}>
-                    <h2>{movieDetail.title}</h2>
+                    <h2>{movieDetail.title} ({movieDetail.year})</h2>
                     <table>
                         <tr>
                             <td width="20%">Imdb Rating</td>
