@@ -54,7 +54,7 @@ const Card = ({movieCategory, movieData, isFavouriteTab, setMovies, isDisabledBt
             maxWidth: "204px",
         }}>
             <Link to={`/${movieCategory}/${movieName}`}>
-                <div style={{margin: "0px 0px", width: "200px"}}>
+                <div style={{margin: "0px 0px",  height: "250px", width: "200px"}}>
                     <img src={imageUrl} alt={`${movieName} poster`} height="250px" width="200px"/>
                 </div>
             </Link>
